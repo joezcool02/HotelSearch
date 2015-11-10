@@ -1,0 +1,48 @@
+/* CSS declarations go here */
+@base-color      : #411485;
+@primary  : mix(@base-color, mediumvioletred);
+@secondary : mix(@base-color, lightseagreen);
+@tertiary  : mix(@base-color, mintcream);
+
+/*Style for an individual result*/
+.Result
+{
+	border: 1px solid @primary;
+	border-top-width: 20px;
+	border-radius: 5px;
+
+	margin: 20px 0;
+
+	float: left;
+
+	-webkit-box-shadow: 0 10px 6px -6px #777;
+	-moz-box-shadow: 0 10px 6px -6px #777;
+	box-shadow: 0 10px 6px -6px #777;
+
+
+	/*Hover effect*/
+	&:hover
+	{
+		margin: 10px 0;
+		
+
+		-webkit-box-shadow: 0 30px 6px -6px #777;
+		-moz-box-shadow: 0 30px 6px -6px #777;
+		box-shadow: 0 30px 6px -6px #777;
+		 -webkit-transition: all 2s; /* Safari */
+    	transition: all 2s;
+	}
+
+	/*Space for each Hotels Image*/
+	.ResultImageSpace
+	{
+
+
+		.ResultImage
+		{
+			/*Scale image by its width*/
+			max-width: 100%;
+		}
+	}
+					
+}
