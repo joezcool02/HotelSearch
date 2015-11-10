@@ -1,14 +1,20 @@
 <head>
-  <title>HotelSearch</title>
+  <title>Hotel3000</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  
+  <!-- Template for the navBar at the top of the page -->
+  {{ > navBar}}
 
-  {{> hello}}
+  <!-- Container for the pages content -->
+  <div class="container">
+  
+  	<!-- Template for the Search Inputs -->
+  	{{ >SearchInput}}
+
+  </div>
+
+
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
