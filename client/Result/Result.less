@@ -11,7 +11,7 @@
 	border-top-width: 20px;
 	border-radius: 5px;
 
-	margin: 20px 0;
+	margin: 20px ;
 
 	float: left;
 
@@ -19,24 +19,27 @@
 	-moz-box-shadow: 0 10px 6px -6px #777;
 	box-shadow: 0 10px 6px -6px #777;
 
+	-webkit-transition: all 1s; /* Safari */
+	transition: all 1s;
 
 	/*Hover effect*/
 	&:hover
-	{
-		margin: 10px 0;
-		
+	{		
 
-		-webkit-box-shadow: 0 30px 6px -6px #777;
-		-moz-box-shadow: 0 30px 6px -6px #777;
-		box-shadow: 0 30px 6px -6px #777;
-		 -webkit-transition: all 2s; /* Safari */
-    	transition: all 2s;
+		margin: 10px ;
+
+	  -moz-box-shadow:    3px 3px 5px 6px #777;
+	  -webkit-box-shadow: 3px 3px 5px 6px #777;
+	  box-shadow:         3px 3px 5px 6px #777;
+		-webkit-transition: all 1s; /* Safari */
+    	transition: all 1s;
 	}
 
 	/*Space for each Hotels Image*/
 	.ResultImageSpace
 	{
-
+		/*add some margin above and below*/
+		margin: 20px 0;
 
 		.ResultImage
 		{
