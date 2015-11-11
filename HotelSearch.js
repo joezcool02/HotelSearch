@@ -1,33 +1,38 @@
 if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
-    }
-  });
+  Meteor.call('GetHotelsArr', function(error, result) {
+          console.log(result[0].nm);
+          LoadInHotels(result);
+        });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
+
+  function LoadInHotels(Hotels) {
+    console.log(Hotels[1].nm);
+  }
+
+
 }
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
+    HotelsArr = {};
 
       // Checking all content can be accessed from the text file
       console.log(Assets.getText('example.txt'));
 
       //checking all content can be accessed from the json file
-      var HotelsArr = JSON.parse(Assets.getText('example.json'));
+      HotelsArr = JSON.parse(Assets.getText('example.json'));
       
       console.log("Json Object");
       //checking my json object has been loaded correctly
       console.log("10th Monarch " + HotelsArr[10].nm);
+
+      Meteor.methods({
+        GetHotelsArr : function() {
+          
+          return JSON.parse(Assets.getText('example.json'));
+        }
+      })
       
   });
 }
