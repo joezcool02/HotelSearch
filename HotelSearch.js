@@ -18,6 +18,16 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    // code to run on server at startup
+
+      // Checking all content can be accessed from the text file
+      console.log(Assets.getText('example.txt'));
+
+      //checking all content can be accessed from the json file
+      var HotelsArr = JSON.parse(Assets.getText('example.json'));
+      
+      console.log("Json Object");
+      //checking my json object has been loaded correctly
+      console.log("10th Monarch " + HotelsArr[10].nm);
+      
   });
 }
