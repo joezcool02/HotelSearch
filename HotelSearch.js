@@ -25,6 +25,7 @@ if (Meteor.isClient) {
 
     //Render in the star ratings per user
     DisplayStars(FilteredHotels);
+    DisplayAmenities(FilteredHotels);
     
   }
 
@@ -34,8 +35,8 @@ if (Meteor.isClient) {
     return Hotels;
   }
 
-  //Build a selector for an individual hotel, JQuery
-  function BuildSelectorString(ChildNumber) {
+  //Build a selector for an individual hotel stars, JQuery
+  function BuildStarSelectorString(ChildNumber) {
     return ".ResultsArea > div:nth-child(" + ChildNumber + ")  .StarRatingSpace";
   }
 
@@ -56,7 +57,7 @@ if (Meteor.isClient) {
 
   //function to display the Stars
   function DisplayStars(Hotels) {
-    
+
     //Display Stars
     //create counter
     var counter = 0;
@@ -65,7 +66,7 @@ if (Meteor.isClient) {
 
     Hotels.forEach(function(Hotel) {
       // $( ".StarRatingSpace:child(" + counter + ")" ).append('*');
-      SelectorString = BuildSelectorString(counter + 1);
+      SelectorString = BuildStarSelectorString(counter + 1);
       OutputStarString = BuildRatingString(Hotel.StarRating);
       $( SelectorString ).append(OutputStarString);
 
@@ -73,7 +74,45 @@ if (Meteor.isClient) {
     });
   }
 
+  //function to display the Stars
+  function DisplayAmenities(Hotels) {
 
+    //Display Stars
+    //create counter
+    var counter = 0;
+    var SelectorString ="";
+    var OutputStarString = "";
+    
+
+    Hotels.forEach(function(Hotel) {
+      // $( ".StarRatingSpace:child(" + counter + ")" ).append('*');
+      SelectorString = BuildAmenitiesSelectorString(counter + 1);
+      OutputStarString = BuildAmenitiesString(Hotel.Facilities);
+      $( SelectorString ).append(OutputStarString);
+
+      counter++;
+    });
+  }
+
+  //Build a selector for an individual hotel, JQuery
+  function BuildAmenitiesSelectorString(ChildNumber) {
+    return ".ResultsArea > div:nth-child(" + ChildNumber + ")  .AmenitiesArea";
+  }
+
+
+  //Build a selector for an individual hotel, JQuery
+  function BuildAmenitiesString(Facilities) {
+    var AmenitiesString = ""
+
+    Facilities.forEach(function(Facility) {
+      AmenitiesString = AmenitiesString + Facility;
+
+    });
+
+    // return AmenitiesString;
+    return AmenitiesString;
+    
+  }
 
 }
 
