@@ -10,6 +10,18 @@ if (Meteor.isClient) {
     DisplayHotels(Hotels);
   }
 
+  //UpdateHotels global function to be called from Filter button Click
+  FilterHotels = function(){
+    if ($('ChkCarPark').checked = true)
+    console.log("CarPark");
+      if ($('ChkSwimmingPool').checked = true)
+    console.log("SwimmingPool");
+      if ($('ChkGym').checked = true)
+    console.log("Gym");
+
+  }
+
+
   //Display the Hotels in the Client view
   function DisplayHotels(Hotels) {
 
