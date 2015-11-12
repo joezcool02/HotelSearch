@@ -2,12 +2,12 @@
  {
  "Name": "hotelone",
  "StarRating": 5,
- "Facilities": ["car park", "pool"]
+ "Facilities": ["carpark", "pool"]
  },
  {
  "Name": "hoteltwo",
  "StarRating": 3,
- "Facilities": ["car park","gym" ]
+ "Facilities": ["carpark","gym" ]
  },
  {
  "Name": "hotelthree",

@@ -105,7 +105,7 @@ if (Meteor.isClient) {
     var AmenitiesString = ""
 
     Facilities.forEach(function(Facility) {
-      AmenitiesString = AmenitiesString + Facility;
+      AmenitiesString = AmenitiesString + "<img src=" + Facility + ".png>";
 
     });
 
