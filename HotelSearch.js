@@ -16,7 +16,7 @@ if (Meteor.isClient) {
 
     FilteredHotels.forEach(function(Hotel) {
       
-    $( ".ResultsArea" ).append('<div class="row"> <div class="Result"> <div class="col-md-4 col-sm-12"> <div class="ResultImageSpace"> <img class="ResultImage" src="/HotelImage.jpg"> </div></div><div class="col-md-8 col-sm-12"> <div class="ResultTextArea"> <h2 class="HotelNameSpace">' + Hotel.Name + '</h2> <p class="StarRatingSpace">' + Hotel.StarRating + '</p></div></div></div></div>');
+    $( ".ResultsArea" ).append('<div class="row"> <div class="Result"> <div class="col-md-4 col-sm-12"> <div class="ResultImageSpace"> <img class="ResultImage" src="/HotelImage.jpg"> </div></div><div class="col-md-8 col-sm-12"> <div class="ResultTextArea"> <h2 class="HotelNameSpace">' + Hotel.Name + '</h2> <p class="StarRatingSpace">' + Hotel.StarRating + '</p> <div class="AmenitiesArea"></div></div></div></div></div>');
     });
 
     DisplayStars(FilteredHotels);
@@ -38,9 +38,9 @@ if (Meteor.isClient) {
 
     for (var i = 0 ; i < 5; i++) {
       if(i < StarNumber)
-        StarString = StarString + "*";
+        StarString = StarString + "<img src=StarFill.png>";
       else
-        StarString = StarString + "o";
+        StarString = StarString + "<img src=StarEmpty.png>";
     };
 
     // return StarString;
