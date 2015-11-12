@@ -1,7 +1,10 @@
 if (Meteor.isClient) {
 
+  var GlobalHotels = [];
   //Meteor Call function to call a Server Side function from the client side
   Meteor.call('GetHotelsArr', function(error, result) {
+          GlobalHotels = result;
+          console.log(GlobalHotels);
           LoadInHotels(result);
         });
 
@@ -85,8 +88,9 @@ if (Meteor.isClient) {
   }
 
   //Display the Hotels in the Client view
-  function DisplayHotels(Hotels) {
-
+  DisplayHotels = function() {
+    // Include the global hotels
+    Hotels = GlobalHotels;
     //Filtered Hotels
     var FilteredHotels = ApplyFilters(Hotels);
 
