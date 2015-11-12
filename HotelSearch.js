@@ -1,38 +1,45 @@
 if (Meteor.isClient) {
 
+  //Meteor Call function to call a Server Side function from the client side
   Meteor.call('GetHotelsArr', function(error, result) {
-          console.log(result[0].Name);
           LoadInHotels(result);
         });
 
+  //Load in the Hotels from the Server side
   function LoadInHotels(Hotels) {
-    console.log(Hotels[1].Name);
     DisplayHotels(Hotels);
   }
 
+  //Display the Hotels in the Client view
   function DisplayHotels(Hotels) {
 
+    //Filtered Hotels
     var FilteredHotels = ApplyFilters(Hotels);
 
+    //For each Hotel
     FilteredHotels.forEach(function(Hotel) {
       
+    //Render in the Hotel in our HTML style
     $( ".ResultsArea" ).append('<div class="row"> <div class="Result"> <div class="col-md-4 col-sm-12"> <div class="ResultImageSpace"> <img class="ResultImage" src="/HotelImage.jpg"> </div></div><div class="col-md-8 col-sm-12"> <div class="ResultTextArea"> <h2 class="HotelNameSpace">' + Hotel.Name + '</h2> <p class="StarRatingSpace">' + Hotel.StarRating + '</p> <div class="AmenitiesArea"></div></div></div></div></div>');
     });
 
+    //Render in the star ratings per user
     DisplayStars(FilteredHotels);
     
   }
 
+  //Apply filters to the Hotels
   function ApplyFilters(Hotels) {
     //Temporarily return the same array
     return Hotels;
   }
 
+  //Build a selector for an individual hotel, JQuery
   function BuildSelectorString(ChildNumber) {
-    //Temporarily return the same array
     return ".ResultsArea > div:nth-child(" + ChildNumber + ")  .StarRatingSpace";
   }
 
+  //Build a rating string out of 5 stars
   function BuildRatingString(StarNumber) {
     var StarString = ""
 
@@ -47,7 +54,9 @@ if (Meteor.isClient) {
     return StarString;
   }
 
+  //function to display the Stars
   function DisplayStars(Hotels) {
+    
     //Display Stars
     //create counter
     var counter = 0;
