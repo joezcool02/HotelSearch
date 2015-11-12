@@ -20,7 +20,7 @@ if (Meteor.isClient) {
     FilteredHotels.forEach(function(Hotel) {
       
     //Render in the Hotel in our HTML style
-    $( ".ResultsArea" ).append('<div class="row"> <div class="Result"> <div class="col-md-4 col-sm-12"> <div class="ResultImageSpace"> <img class="ResultImage" src="/HotelImage.jpg"> </div></div><div class="col-md-8 col-sm-12"> <div class="ResultTextArea"> <h2 class="HotelNameSpace">' + Hotel.Name + '</h2> <p class="StarRatingSpace">' + Hotel.StarRating + '</p> <div class="AmenitiesArea"></div></div></div></div></div>');
+    $( ".ResultsArea" ).append('<div class="row"> <div class="Result"> <div class="col-md-4 col-sm-12"> <div class="ResultImageSpace"> <img class="ResultImage" src="/HotelImage.jpg"> </div></div><div class="col-md-8 col-sm-12"> <div class="ResultTextArea"> <h2 class="HotelNameSpace">' + Hotel.Name + '</h2> <p class="StarRatingSpace"></p> <div class="AmenitiesArea"></div></div></div></div></div>');
     });
 
     //Render in the star ratings per user
