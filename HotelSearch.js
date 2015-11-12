@@ -11,16 +11,78 @@ if (Meteor.isClient) {
   }
 
   //UpdateHotels global function to be called from Filter button Click
-  FilterHotels = function(){
-    if ($('ChkCarPark').checked = true)
-    console.log("CarPark");
-      if ($('ChkSwimmingPool').checked = true)
-    console.log("SwimmingPool");
-      if ($('ChkGym').checked = true)
-    console.log("Gym");
+  // FilterHotels = function(){
+  //   var CarParkChecked = false;
+  //   var SwimmingPoolChecked = false;
+  //   var GymChecked = false;
 
+
+
+  //   if ($('.ChkCarPark').is(":checked"))
+  //     CarParkChecked = true;
+
+  //   if ($('.ChkSwimmingPool').is(":checked"))
+  //     SwimmingPoolChecked = true;
+
+  //   if ($('.ChkGym').is(":checked"))
+  //     GymChecked = true;
+
+  // }
+
+  //Apply filters to the Hotels
+  function ApplyFilters(Hotels) {
+    //Temporarily return the same array
+    return Hotels;
   }
+  // function ApplyFilters(Hotels) {
 
+  //   var CarParkChecked = false;
+  //   var SwimmingPoolChecked = false;
+  //   var GymChecked = false;
+  //   var hasGym = false;
+  //   var hasPool = false;
+  //   var hasCarPark = false;
+  //   var FilteredArray = [];
+
+
+
+  //   if ($('.ChkCarPark').is(":checked"))
+  //     CarParkChecked = true;
+
+  //   if ($('.ChkSwimmingPool').is(":checked"))
+  //     SwimmingPoolChecked = true;
+
+  //   if ($('.ChkGym').is(":checked"))
+  //     GymChecked = true;
+
+  //   //For each Hotel
+  //   Hotels.forEach(function(Hotel) {
+  //     if(CarParkChecked)
+  //       if(Hotel.Facilities.indexOf("carpark") != -1)
+  //           hasCarPark = true;
+
+  //     if(SwimmingPoolChecked)
+  //       if(Hotel.Facilities.indexOf("carpark") != -1)
+  //           hasPool = true;
+
+  //     if(GymChecked)
+  //       if(Hotel.Facilities.indexOf("carpark") != -1)
+  //           hasGym = true;
+
+  //         if ((CarParkChecked = hasCarPark) && (SwimmingPoolChecked = hasPool) && (GymChecked = hasGym))
+  //           FilteredArray.push(Hotel);
+
+  //   });
+
+  //   console.log(FilteredArray);
+  //   //Temporarily return the same array
+  //   return FilteredArray;
+  // }
+
+
+  function RemoveHotels() {
+    $(".Result").remove();
+  }
 
   //Display the Hotels in the Client view
   function DisplayHotels(Hotels) {
@@ -41,11 +103,7 @@ if (Meteor.isClient) {
     
   }
 
-  //Apply filters to the Hotels
-  function ApplyFilters(Hotels) {
-    //Temporarily return the same array
-    return Hotels;
-  }
+
 
   //Build a selector for an individual hotel stars, JQuery
   function BuildStarSelectorString(ChildNumber) {
