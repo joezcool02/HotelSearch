@@ -5,10 +5,23 @@ if (Meteor.isClient) {
           LoadInHotels(result);
         });
 
-
   function LoadInHotels(Hotels) {
     console.log(Hotels[1].nm);
+    DisplayHotels(Hotels);
   }
+
+  function DisplayHotels(Hotels) {
+    Hotels.forEach(function(Hotel) {
+      console.log(Hotel);
+      // $( ".ResultsArea" ).append(Hotel.nm + "<br>");
+
+
+    $( ".ResultsArea" ).append('<div class="row"> <div class="Result"> <div class="col-md-4 col-sm-12"> <div class="ResultImageSpace"> <img class="ResultImage" src="/HotelImage.jpg"> </div></div><div class="col-md-8 col-sm-12"> <div class="ResultTextArea"> <h2>' + Hotel.nm + '</h2> <p>' + Hotel.hse + '</p></div></div></div></div>');
+
+    });
+    
+  }
+
 
 
 }
