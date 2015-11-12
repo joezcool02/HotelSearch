@@ -1,12 +1,12 @@
 if (Meteor.isClient) {
 
   Meteor.call('GetHotelsArr', function(error, result) {
-          console.log(result[0].nm);
+          console.log(result[0].Name);
           LoadInHotels(result);
         });
 
   function LoadInHotels(Hotels) {
-    console.log(Hotels[1].nm);
+    console.log(Hotels[1].Name);
     DisplayHotels(Hotels);
   }
 
@@ -16,7 +16,7 @@ if (Meteor.isClient) {
       // $( ".ResultsArea" ).append(Hotel.nm + "<br>");
 
 
-    $( ".ResultsArea" ).append('<div class="row"> <div class="Result"> <div class="col-md-4 col-sm-12"> <div class="ResultImageSpace"> <img class="ResultImage" src="/HotelImage.jpg"> </div></div><div class="col-md-8 col-sm-12"> <div class="ResultTextArea"> <h2>' + Hotel.nm + '</h2> <p>' + Hotel.hse + '</p></div></div></div></div>');
+    $( ".ResultsArea" ).append('<div class="row"> <div class="Result"> <div class="col-md-4 col-sm-12"> <div class="ResultImageSpace"> <img class="ResultImage" src="/HotelImage.jpg"> </div></div><div class="col-md-8 col-sm-12"> <div class="ResultTextArea"> <h2>' + Hotel.Name + '</h2> <p>' + Hotel.StarRating + '</p></div></div></div></div>');
 
     });
     
@@ -38,7 +38,7 @@ if (Meteor.isServer) {
       
       console.log("Json Object");
       //checking my json object has been loaded correctly
-      console.log("10th Monarch " + HotelsArr[10].nm);
+      console.log("10th Monarch " + HotelsArr[1].Name);
 
       Meteor.methods({
         GetHotelsArr : function() {
