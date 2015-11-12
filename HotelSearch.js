@@ -94,6 +94,8 @@ if (Meteor.isClient) {
     //Filtered Hotels
     var FilteredHotels = ApplyFilters(Hotels);
 
+    RemoveHotels();
+
     //For each Hotel
     FilteredHotels.forEach(function(Hotel) {
       
