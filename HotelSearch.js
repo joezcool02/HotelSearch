@@ -11,15 +11,19 @@ if (Meteor.isClient) {
   }
 
   function DisplayHotels(Hotels) {
-    Hotels.forEach(function(Hotel) {
-      console.log(Hotel);
-      // $( ".ResultsArea" ).append(Hotel.nm + "<br>");
 
-
-    $( ".ResultsArea" ).append('<div class="row"> <div class="Result"> <div class="col-md-4 col-sm-12"> <div class="ResultImageSpace"> <img class="ResultImage" src="/HotelImage.jpg"> </div></div><div class="col-md-8 col-sm-12"> <div class="ResultTextArea"> <h2>' + Hotel.Name + '</h2> <p>' + Hotel.StarRating + '</p></div></div></div></div>');
-
+    var FilteredHotels = ApplyFilters(Hotels);
+    
+    FilteredHotels.forEach(function(Hotel) {
+      
+    $( ".ResultsArea" ).append('<div class="row"> <div class="Result"> <div class="col-md-4 col-sm-12"> <div class="ResultImageSpace"> <img class="ResultImage" src="/HotelImage.jpg"> </div></div><div class="col-md-8 col-sm-12"> <div class="ResultTextArea"> <h2 class="HotelNameSpace">' + Hotel.Name + '</h2> <p class="StarRatingSpace">' + Hotel.StarRating + '</p></div></div></div></div>');
     });
     
+  }
+
+  function ApplyFilters(Hotels) {
+    //Temporarily return the same array
+    return Hotels;
   }
 
 
