@@ -4,7 +4,6 @@ if (Meteor.isClient) {
   //Meteor Call function to call a Server Side function from the client side
   Meteor.call('GetHotelsArr', function(error, result) {
           GlobalHotels = result;
-          console.log(GlobalHotels);
           LoadInHotels(result);
         });
 
@@ -200,15 +199,8 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
     HotelsArr = {};
 
-      // Checking all content can be accessed from the text file
-      console.log(Assets.getText('example.txt'));
-
       //checking all content can be accessed from the json file
       HotelsArr = JSON.parse(Assets.getText('example.json'));
-      
-      console.log("Json Object");
-      //checking my json object has been loaded correctly
-      console.log("10th Monarch " + HotelsArr[1].Name);
 
       Meteor.methods({
         GetHotelsArr : function() {
