@@ -13,31 +13,6 @@ if (Meteor.isClient) {
     DisplayHotels(Hotels);
   }
 
-  //UpdateHotels global function to be called from Filter button Click
-  // FilterHotels = function(){
-  //   var CarParkChecked = false;
-  //   var SwimmingPoolChecked = false;
-  //   var GymChecked = false;
-
-
-
-  //   if ($('.ChkCarPark').is(":checked"))
-  //     CarParkChecked = true;
-
-  //   if ($('.ChkSwimmingPool').is(":checked"))
-  //     SwimmingPoolChecked = true;
-
-  //   if ($('.ChkGym').is(":checked"))
-  //     GymChecked = true;
-
-  // }
-
-  // //Apply filters to the Hotels
-  // function ApplyFilters(Hotels) {
-  //   //Temporarily return the same array
-  //   return Hotels;
-  // }
-
   function ApplyFilters(Hotels) {
 
     var CarParkChecked = false;
