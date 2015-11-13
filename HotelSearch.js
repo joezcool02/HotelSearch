@@ -91,26 +91,34 @@ if (Meteor.isClient) {
     $(".ResultsArea").remove();
   }
 
+
+  //temporary sort hotels stub
+  function SortHotels(Hotels) {
+    return Hotels;
+  }
+
+
   //Display the Hotels in the Client view
   DisplayHotels = function() {
     // Include the global hotels
     Hotels = GlobalHotels;
     //Filtered Hotels
     var FilteredHotels = ApplyFilters(Hotels);
+    var SortedFilteredHotels = SortHotels(FilteredHotels);
 
     RemoveHotels();
 
     $('<div class="ResultsArea"></div>').insertBefore( ".alert" );
     //For each Hotel
-    FilteredHotels.forEach(function(Hotel) {
+    SortedFilteredHotels.forEach(function(Hotel) {
       
     //Render in the Hotel in our HTML style
     $( ".ResultsArea" ).append('<div class="row"> <div class="Result"> <div class="col-md-4 col-sm-12"> <div class="ResultImageSpace"> <img class="ResultImage" src="/HotelImage.jpg"> </div></div><div class="col-md-8 col-sm-12"> <div class="ResultTextArea"> <h2 class="HotelNameSpace">' + Hotel.Name + '</h2> <p class="StarRatingSpace"></p> <div class="AmenitiesArea"></div></div></div></div></div>');
     });
 
     //Render in the star ratings per user
-    DisplayStars(FilteredHotels);
-    DisplayAmenities(FilteredHotels);
+    DisplayStars(SortedFilteredHotels);
+    DisplayAmenities(SortedFilteredHotels);
     
   }
 
