@@ -34,15 +34,17 @@ describe("Filter Tests", function() {
     $(".FilterButton").click();
     expect($('.Result').length).toEqual(1);
 
-    //uncheckCarPark to end filter tests
-    $(".ChkCarPark").click();
+    //uncheck Gym to end filter tests
+    $(".ChkGym").click();
 
   });
 });
 
-
 describe("Sort Tests", function() {
   it("Check Ascending", function() {
+
+    $(".StarSortInput").val("Ascending");
+    $(".SortButton").click();
 
     var topHotel = $('.StarRatingSpace').first();
 
@@ -52,8 +54,12 @@ describe("Sort Tests", function() {
   });
 });
 
+
 describe("Sort Tests", function() {
   it("Check Descending", function() {
+
+    $(".StarSortInput").val("Descending");
+    $(".SortButton").click();
 
     var topHotel = $('.StarRatingSpace').first();
 
@@ -62,3 +68,8 @@ describe("Sort Tests", function() {
 
   });
 });
+
+
+
+
+
