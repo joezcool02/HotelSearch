@@ -151,7 +151,7 @@ if (Meteor.isClient) {
 
     for (var i = 0 ; i < 5; i++) {
       if(i < StarNumber)
-        StarString = StarString + "<img src=StarFill.png>";
+        StarString = StarString + "<img class='StarFillImg' src=StarFill.png>";
       else
         StarString = StarString + "<img src=StarEmpty.png>";
     };
