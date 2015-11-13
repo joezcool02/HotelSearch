@@ -94,9 +94,25 @@ if (Meteor.isClient) {
 
   //temporary sort hotels stub
   function SortHotels(Hotels) {
+
+    //sort hotels into Ascending Order
+    Hotels.sort(StarCompare);
+
+    //If Descending required, simply reverse the Assending Sorted Array
+    if($(".StarSortInput option:selected").text() == "Descending")
+      Hotels.reverse();
+
     return Hotels;
   }
 
+  //StarCompare Ascending
+  function StarCompare(a,b) {
+    if (a.StarRating < b.StarRating)
+      return 1;
+    if (a.StarRating > b.StarRating)
+      return -1;
+    return 0;
+  }
 
   //Display the Hotels in the Client view
   DisplayHotels = function() {
