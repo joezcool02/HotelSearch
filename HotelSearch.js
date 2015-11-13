@@ -32,59 +32,63 @@ if (Meteor.isClient) {
 
   // }
 
-  //Apply filters to the Hotels
-  function ApplyFilters(Hotels) {
-    //Temporarily return the same array
-    return Hotels;
-  }
+  // //Apply filters to the Hotels
   // function ApplyFilters(Hotels) {
-
-  //   var CarParkChecked = false;
-  //   var SwimmingPoolChecked = false;
-  //   var GymChecked = false;
-  //   var hasGym = false;
-  //   var hasPool = false;
-  //   var hasCarPark = false;
-  //   var FilteredArray = [];
-
-
-
-  //   if ($('.ChkCarPark').is(":checked"))
-  //     CarParkChecked = true;
-
-  //   if ($('.ChkSwimmingPool').is(":checked"))
-  //     SwimmingPoolChecked = true;
-
-  //   if ($('.ChkGym').is(":checked"))
-  //     GymChecked = true;
-
-  //   //For each Hotel
-  //   Hotels.forEach(function(Hotel) {
-  //     if(CarParkChecked)
-  //       if(Hotel.Facilities.indexOf("carpark") != -1)
-  //           hasCarPark = true;
-
-  //     if(SwimmingPoolChecked)
-  //       if(Hotel.Facilities.indexOf("carpark") != -1)
-  //           hasPool = true;
-
-  //     if(GymChecked)
-  //       if(Hotel.Facilities.indexOf("carpark") != -1)
-  //           hasGym = true;
-
-  //         if ((CarParkChecked = hasCarPark) && (SwimmingPoolChecked = hasPool) && (GymChecked = hasGym))
-  //           FilteredArray.push(Hotel);
-
-  //   });
-
-  //   console.log(FilteredArray);
   //   //Temporarily return the same array
-  //   return FilteredArray;
+  //   return Hotels;
   // }
+
+  function ApplyFilters(Hotels) {
+
+    var CarParkChecked = false;
+    var SwimmingPoolChecked = false;
+    var GymChecked = false;
+    
+    var canBePushed = true;
+
+    var FilteredArray = [];
+
+
+
+    if ($('.ChkCarPark').is(":checked"))
+      CarParkChecked = true;
+
+    if ($('.ChkSwimmingPool').is(":checked"))
+      SwimmingPoolChecked = true;
+
+    if ($('.ChkGym').is(":checked"))
+      GymChecked = true;
+
+    //For each Hotel
+    Hotels.forEach(function(Hotel) {
+
+      canBePushed = true;
+
+      if(CarParkChecked)
+        if(Hotel.Facilities.indexOf("carpark") == -1)
+            canBePushed = false;
+
+      if(SwimmingPoolChecked)
+        if(Hotel.Facilities.indexOf("pool") == -1)
+            canBePushed = false;
+
+      if(GymChecked)
+        if(Hotel.Facilities.indexOf("gym") == -1)
+            canBePushed = false;
+
+      if (canBePushed)
+        FilteredArray.push(Hotel);
+
+    });
+
+    console.log(FilteredArray);
+    //Temporarily return the same array
+    return FilteredArray;
+  }
 
 
   function RemoveHotels() {
-    $(".Result").remove();
+    $(".ResultsArea").remove();
   }
 
   //Display the Hotels in the Client view
@@ -96,6 +100,7 @@ if (Meteor.isClient) {
 
     RemoveHotels();
 
+    $('<div class="ResultsArea"></div>').insertBefore( ".alert" );
     //For each Hotel
     FilteredHotels.forEach(function(Hotel) {
       
